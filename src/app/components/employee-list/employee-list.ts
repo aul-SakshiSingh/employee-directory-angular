@@ -102,8 +102,8 @@ export class EmployeeList implements OnInit{
   const value = searchValue.toLowerCase().trim();
  
   this.filteredEmployees = this.employees.filter(employee =>
-    employee.name.toLowerCase().includes(searchValue) ||
-    employee.email.toLowerCase().includes(searchValue)
+    employee.name.toLowerCase().includes(value) ||
+    employee.email.toLowerCase().includes(value)
   );
  
   this.sortEmployees();
