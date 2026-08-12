@@ -50,6 +50,7 @@ export class EmployeeList implements OnInit{
         this.employees=data;
         this.filteredEmployees=data;
         this.loading=false;
+        console.log('Loading status:', this.loading);
 
       },
       error:(err)=>{

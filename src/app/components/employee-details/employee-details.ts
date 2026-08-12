@@ -38,6 +38,7 @@ export class EmployeeDetails implements OnInit {
 
         this.employee=data;
         this.loading=false;
+        console.log('Loading status:', this.loading);
       },
 
       error: (err)=>{
