@@ -32,7 +32,7 @@ jobs:
         run: npm ci
  
       - name: Build Angular application
-        run: npm run build
+        run: ng build --configuration production --base-href "/employee-directory-angular/"
  
       - name: Setup Pages
         uses: actions/configure-pages@v5
