@@ -1,0 +1,54 @@
+<div class="container">
+
+    <p>Loading: {{loading }}</p>
+    @if(loading){
+        <app-loader></app-loader>
+    }
+    @else if(error){
+        <p>{{ error }}</p>
+    }
+     
+    @else{
+        <div class="card" >
+ 
+    <h2>{{ employee?.name }}</h2>
+ 
+    <p><strong>Username:</strong> {{ employee?.username }}</p>
+ 
+    <p><strong>Email:</strong> {{ employee?.email }}</p>
+ 
+    <p><strong>Phone:</strong> {{ employee?.phone }}</p>
+ 
+    <p><strong>Website:</strong> {{ employee?.website }}</p>
+ 
+    <hr>
+ 
+    <h3>Company Details</h3>
+ 
+    <p><strong>Name:</strong> {{ employee?.company?.name }}</p>
+ 
+    <p><strong>Catch Phrase:</strong> {{ employee?.company?.catchPhrase }}</p>
+ 
+    <p><strong>Business:</strong> {{ employee?.company?.bs }}</p>
+ 
+    <hr>
+ 
+    <h3>Address Details</h3>
+ 
+    <p><strong>Street:</strong> {{ employee?.address?.street }}</p>
+ 
+    <p><strong>Suite:</strong> {{ employee?.address?.suite }}</p>
+ 
+    <p><strong>City:</strong> {{ employee?.address?.city }}</p>
+ 
+    <p><strong>Zip Code:</strong> {{ employee?.address?.zipcode }}</p>
+ 
+
+  </div>
+
+
+    }
+ 
+  
+
+</div>

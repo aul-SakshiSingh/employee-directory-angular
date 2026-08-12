@@ -1,0 +1,87 @@
+<div class="container">
+
+    <h2>Employee Directory</h2>
+    <p>Loading : {{loading}}</p>
+     <p>Error : {{error}}</p>
+      <p>total employee : {{filteredEmployees.length }}</p>
+
+  <app-search (searchChange)="search($event)">
+
+  </app-search>
+
+    <div class="sorting">
+ 
+  <label for="sortBy">Sort By:</label>
+ 
+  <select
+    id="sortBy"
+    [(ngModel)]="sortBy"
+    (change)="sortEmployees()"
+  >
+    <option value="">None</option>
+    <option value="name">Name</option>
+    <option value="company">Company Name</option>
+  </select>
+ 
+  <select
+    [(ngModel)]="sortOrder"
+    (change)="sortEmployees()"
+  >
+    <option value="asc">A - Z</option>
+    <option value="desc">Z - A</option>
+  </select>
+
+
+  <hr>
+ 
+</div>
+ 
+
+    @if(loading){
+        <app-loader></app-loader>
+    }
+    @else if(error){
+        <p class="error" >{{ error }}</p>
+    }@else if(searchError){
+        <p class="search-error">{{searchError}}</p>
+    }
+    @else{
+
+        <div class="table-container">
+
+        
+        <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Company Name</th>
+                <th>Phone</th>
+                <th>Website</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+                @for(employee of filteredEmployees; track employee.id){
+                    <tr [routerLink]="['/employee',employee.id]">
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.company.name}}</td>
+                        <td>{{employee.phone}}</td>
+                        <td>{{employee.website}}</td>
+
+                    </tr>
+                }@empty{
+                    <tr>
+                        <td colspan="5">No employees found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+        
+    }
+    
+
+</div>
