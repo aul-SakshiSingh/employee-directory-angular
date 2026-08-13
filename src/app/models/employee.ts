@@ -10,18 +10,22 @@ export interface Employee {
     name: string;
     catchPhrase: string;
     bs: string;
-  };
+};
  
-  address: {
+
+
+  address:{
     street: string;
     suite: string;
     city: string;
     zipcode: string;
  
-    geo: {
+    geo:{
       lat: string;
       lng: string;
     };
+
+
   };
 }
  

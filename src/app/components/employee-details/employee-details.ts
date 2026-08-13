@@ -1,4 +1,4 @@
-import { Component ,OnInit,inject} from '@angular/core';
+import { Component ,OnInit,inject,ChangeDetectorRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,6 +20,8 @@ export class EmployeeDetails implements OnInit {
   private route=inject(ActivatedRoute);
   private employeeService= inject(EmployeeService);
 
+  private cdr=inject(ChangeDetectorRef);
+
   employee!: Employee;
 
   loading: boolean=true;
@@ -27,25 +29,35 @@ export class EmployeeDetails implements OnInit {
   error: string='';
 
   ngOnInit(): void {
-    const id= Number(this.route.snapshot.paramMap.get('id'));
+   const id= Number(this.route.snapshot.paramMap.get('id'));
     
     console.log("employee id: ",id);
     
     this.employeeService.getEmployee(id).subscribe({
+
+      
 
       next: (data)=>{
         console.log('Employee details: ', data);
 
         this.employee=data;
         this.loading=false;
+        this.cdr.markForCheck();
         console.log('Loading status:', this.loading);
+        console.log('employee =', this.employee);
       },
 
       error: (err)=>{
         console.error("error :", err );
         this.error ='Unable to load Employee Details. please try again later.';
         this.loading=false;
+
+        this.cdr.markForCheck();
       }
     });
-  }
+}
+
+
+
+  
 }

@@ -1,4 +1,4 @@
-import { Component ,OnInit,inject} from '@angular/core';
+import { Component ,OnInit,inject,ChangeDetectorRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -19,6 +19,8 @@ import { EmployeeService } from '../../services/employee.service';
 export class EmployeeList implements OnInit{
   private employeeService=inject(EmployeeService);
   private router=inject(Router);
+
+  private cdr=inject(ChangeDetectorRef);
 
 
   employees: Employee[]=[];
@@ -50,6 +52,7 @@ export class EmployeeList implements OnInit{
         this.employees=data;
         this.filteredEmployees=data;
         this.loading=false;
+        this.cdr.markForCheck();
         console.log('Loading status:', this.loading);
 
       },
@@ -57,6 +60,8 @@ export class EmployeeList implements OnInit{
         console.log(err);
         this.error='Unable to Load Employee Data. Please try again later.';
         this.loading=false;
+
+        this.cdr.markForCheck();
       }
     });
   }
