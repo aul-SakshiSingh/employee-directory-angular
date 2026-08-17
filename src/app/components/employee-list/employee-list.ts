@@ -8,6 +8,7 @@ import { SearchComponent } from '../search/search';
 import { Loader } from '../loader/loader';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,7 +19,18 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class EmployeeList implements OnInit{
   private employeeService=inject(EmployeeService);
+  private authService=inject(AuthService);
   private router=inject(Router);
+
+
+  user=this.authService.getCurrentUser();
+
+  async logout():Promise<void>{
+    await this.authService.logout();
+    this.router.navigate(['/login']);
+    
+  }
+
 
   private cdr=inject(ChangeDetectorRef);
 

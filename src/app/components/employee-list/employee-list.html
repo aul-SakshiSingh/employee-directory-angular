@@ -1,9 +1,12 @@
 <div class="container">
 
     <h2>Employee Directory</h2>
+    <p *ngIf="user">Welcome , {{user.displayName }}</p>
     <p>Loading : {{loading}}</p>
      <p>Error : {{error}}</p>
       <p>total employee : {{filteredEmployees.length }}</p>
+
+      <button type="button" (click)="logout()">Logout</button>
 
   <app-search (searchChange)="search($event)">
 
@@ -45,7 +48,7 @@
     }@else if(searchError){
         <p class="search-error">{{searchError}}</p>
     }
-    @else if(!loading ){
+    @else {
 
         <div class="table-container">
 
