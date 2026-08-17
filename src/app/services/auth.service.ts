@@ -24,9 +24,15 @@ export class AuthService {
  
       return result.user;
  
-    } catch (error) {
+    } catch (error:any) {
       console.error('Google login error:', error);
-      return null;
+        console.log('Error Code:', error?.code);
+
+  console.log('Error Message:', error?.message);
+
+  console.log('Error:', error);
+
+return null;
     }
   }
  
