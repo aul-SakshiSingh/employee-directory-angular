@@ -26,14 +26,14 @@ export class AuthService {
       return result.user;
  
     } catch (error:any) {
-<<<<<<< HEAD
+
         console.error('Google login error:', error);
         console.log('Error Code:', error?.code);
         console.log('Error Message:', error?.message);
         console.log('Error:', error);
 
         return null;
-=======
+
       console.error('Google login error:', error);
         console.log('Error Code:', error?.code);
 
@@ -42,7 +42,7 @@ export class AuthService {
   console.log('Error:', error);
 
 return null;
->>>>>>> origin/main
+
     }
   }
  
@@ -62,9 +62,9 @@ return null;
       });
     });
   }
-<<<<<<< HEAD
+
 }
->>>>>>> Stashed changes
-=======
-}
->>>>>>> origin/main
+
+
+
+
