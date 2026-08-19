@@ -1,8 +1,14 @@
 <div class="search-container">
  
+  <label for="employee-search">
+    Search employee by name or email
+  </label>
+
   <input
+    id="employee-search"
     type="text"
-    placeholder="Search by Name or Email"
+    placeholder="Search employee by Name or Email"
+    aria-label="Search employee by Name or Email"
     
     [formControl]="searchControl"
   />

@@ -1,4 +1,4 @@
-<div class="login-container">
+<main class="login-container">
  
   <div class="login-card">
  
@@ -9,16 +9,20 @@
     <button
       type="button"
       (click)="loginWithGoogle()"
-      [disabled]="loading">
+      [disabled]="loading"
+      aria-label="Login with Google">
  
       {{ loading ? 'Signing in...' : 'Continue with Google' }}
  
     </button>
  
-    <p *ngIf="error" class="error">
+    <p *ngIf="error" 
+        class="error" 
+        role="alert" 
+        aria-live="assertive">
       {{ error }}
     </p>
  
   </div>
  
-</div>
+</main>

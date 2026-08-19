@@ -34,14 +34,7 @@ export class AuthService {
 
         return null;
 
-      console.error('Google login error:', error);
-        console.log('Error Code:', error?.code);
-
-  console.log('Error Message:', error?.message);
-
-  console.log('Error:', error);
-
-return null;
+     
 
     }
   }

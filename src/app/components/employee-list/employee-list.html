@@ -1,4 +1,4 @@
-<div class="container">
+<main class="container">
 
     <h2>Employee Directory</h2>
     <p *ngIf="user">Welcome , {{user.displayName }}</p>
@@ -12,26 +12,35 @@
 
   </app-search>
 
+  <p class="sr-only" 
+  aria-live="polite">
+    {{ filteredEmployees.length}}
+    {{filteredEmployees.length===1? 'employee':'employees'}}
+    found . </p>
+
     <div class="sorting">
  
-  <label for="sortBy">Sort By:</label>
+  <label for="sortBy">Sort Employee By:</label>
  
   <select
     id="sortBy"
     [(ngModel)]="sortBy"
     (change)="sortEmployees()"
   >
-    <option value="">None</option>
+    <option value="">Select sorting option</option>
     <option value="name">Name</option>
     <option value="company">Company Name</option>
   </select>
  
+
+  <label for="sortOrder">Sort Order:</label>
   <select
+    id="sortOrder"
     [(ngModel)]="sortOrder"
     (change)="sortEmployees()"
   >
-    <option value="asc">A - Z</option>
-    <option value="desc">Z - A</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
   </select>
 
 
@@ -44,9 +53,9 @@
         <app-loader></app-loader>
     }
     @else if(error){
-        <p class="error" >{{ error }}</p>
+        <p class="error" role="alert" aria-live="assertive">{{ error }}</p>
     }@else if(searchError){
-        <p class="search-error">{{searchError}}</p>
+        <p class="search-error" role="alert" aria-live="assertive" >{{searchError}}</p>
     }
     @else {
 
@@ -54,21 +63,28 @@
 
         
         <table>
+            <caption class="sr-only">
+                List of employees with their Name, Email,Company,phone Numberand Website.
+            </caption>
             <thead>
                 <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Company Name</th>
-                <th>Phone</th>
-                <th>Website</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Website</th>
             </tr>
             </thead>
 
             <tbody>
 
                 @for(employee of filteredEmployees; track employee.id){
-                    <tr [routerLink]="['/employee',employee.id]">
-                        <td>{{employee.name}}</td>
+                    <tr >
+                        <td>
+                            <a [routerLink]="['/employee',employee.id]"
+                            [attr.aria-label]=" 'View details for'+ employee.name ">
+                            {{employee.name}}</a>
+                            </td>
                         <td>{{employee.email}}</td>
                         <td>{{employee.company.name}}</td>
                         <td>{{employee.phone}}</td>
@@ -87,4 +103,4 @@
     }
     
 
-</div>
+</main>
