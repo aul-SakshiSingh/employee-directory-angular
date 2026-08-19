@@ -1,0 +1,65 @@
+/* Full page layout */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+ 
+/* Login card */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+ 
+/* Heading */
+.login-card h1 {
+  margin-bottom: 10px;
+}
+ 
+/* Description */
+.login-card p {
+  margin-bottom: 25px;
+}
+ 
+/* Google login button */
+.login-card button {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+ 
+/* Hover effect */
+.login-card button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+ 
+/* Disabled button */
+.login-card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+ 
+/* Keyboard accessibility */
+.login-card button:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 3px;
+}
+ 
+/* Error message */
+.error {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+ 

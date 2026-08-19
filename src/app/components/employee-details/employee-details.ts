@@ -35,8 +35,6 @@ export class EmployeeDetails implements OnInit {
     
     this.employeeService.getEmployee(id).subscribe({
 
-      
-
       next: (data)=>{
         console.log('Employee details: ', data);
 
@@ -56,8 +54,6 @@ export class EmployeeDetails implements OnInit {
       }
     });
 }
-
-
 
   
 }
