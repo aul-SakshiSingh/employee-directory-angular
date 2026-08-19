@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 import { Injectable } from '@angular/core';
 import {
   GoogleAuthProvider,
@@ -27,12 +26,23 @@ export class AuthService {
       return result.user;
  
     } catch (error:any) {
+<<<<<<< HEAD
         console.error('Google login error:', error);
         console.log('Error Code:', error?.code);
         console.log('Error Message:', error?.message);
         console.log('Error:', error);
 
         return null;
+=======
+      console.error('Google login error:', error);
+        console.log('Error Code:', error?.code);
+
+  console.log('Error Message:', error?.message);
+
+  console.log('Error:', error);
+
+return null;
+>>>>>>> origin/main
     }
   }
  
@@ -52,5 +62,9 @@ export class AuthService {
       });
     });
   }
+<<<<<<< HEAD
 }
 >>>>>>> Stashed changes
+=======
+}
+>>>>>>> origin/main

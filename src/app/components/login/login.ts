@@ -24,6 +24,12 @@ export class Login {
     this.error = '';
  
     const user = await this.authService.loginWithGoogle();
+
+     
+
+    console.log('Returned User:', user);
+
+    console.log('Current Firebase User:', this.authService.getCurrentUser());
  
     if (user) {
       console.log('Authentication successful');
