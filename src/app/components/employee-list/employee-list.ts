@@ -126,7 +126,8 @@ export class EmployeeList implements OnInit{
   this.sortEmployees();
  
 }
-  searchEmployee():void{
+ /* 
+ searchEmployee():void{
     const searchValue=this.searchText.trim().toLowerCase();
 
     if(!searchValue){
@@ -141,5 +142,7 @@ export class EmployeeList implements OnInit{
       this.searchError='Incorrect employee name or email.';
     }
   }
+    
+  */
 
 }
